@@ -58,5 +58,9 @@ spec:
             failureThreshold: 3
           securityContext:
             runAsNonRoot: true
+            # node:20-alpine's built-in "node" user is uid 1000, but kubelet
+            # can't verify a non-numeric USER from the image, so we pin the
+            # UID explicitly here (fixes CreateContainerConfigError).
+            runAsUser: 1000
             allowPrivilegeEscalation: false
             readOnlyRootFilesystem: true
