@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: devops-azure-api-config
+  labels:
+    app: devops-azure-api
+data:
+  PORT: "3000"
+  LOG_LEVEL: "info"

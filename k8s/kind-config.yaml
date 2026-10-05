@@ -1,0 +1,11 @@
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+name: devops-azure
+nodes:
+  - role: control-plane
+    extraPortMappings:
+      # Exposes the NodePort service on localhost:8080 without an Ingress
+      # controller, keeping the local setup simple.
+      - containerPort: 30080
+        hostPort: 8080
+        protocol: TCP

@@ -1,0 +1,25 @@
+version: "3.9"
+
+# Runs the application locally. There is no real external dependency
+# (the test explicitly waives a real database), so this compose file just
+# runs the API with its configurable environment variables. See
+# observability/docker-compose.yml for the Grafana/Loki/Prometheus stack.
+services:
+  api:
+    build:
+      context: ./app
+      target: runtime
+    image: devops-azure-api:local
+    container_name: devops-azure-api
+    ports:
+      - "3000:3000"
+    environment:
+      PORT: "3000"
+      LOG_LEVEL: "info"
+      APP_NAME: "devops-azure-api"
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "node", "-e", "require('http').get('http://127.0.0.1:3000/health', r => process.exit(r.statusCode===200?0:1)).on('error', () => process.exit(1))"]
+      interval: 30s
+      timeout: 3s
+      retries: 3

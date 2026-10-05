@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: devops-azure-api
+  labels:
+    app: devops-azure-api
+spec:
+  type: ClusterIP
+  selector:
+    app: devops-azure-api
+  ports:
+    - name: http
+      port: 80
+      targetPort: http
