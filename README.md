@@ -53,7 +53,7 @@ kubectl patch deployment metrics-server -n kube-system --type=json \
 
 kubectl get pods -w
 kubectl get hpa
-curl localhost:8080/api/todos   # via NodePort mapeado no kind-config.yaml
+curl localhost:8081/api/todos   # via NodePort mapeado no kind-config.yaml
 ```
 
 Manifests em `k8s/`: `Deployment` (2 réplicas, probes de liveness/readiness,

@@ -4,8 +4,9 @@ name: devops-azure
 nodes:
   - role: control-plane
     extraPortMappings:
-      # Exposes the NodePort service on localhost:8080 without an Ingress
-      # controller, keeping the local setup simple.
+      # Exposes the NodePort service on localhost:8081 without an Ingress
+      # controller, keeping the local setup simple. 8081 (not 8080) to avoid
+      # clashing with other common local services.
       - containerPort: 30080
-        hostPort: 8080
+        hostPort: 8081
         protocol: TCP
