@@ -92,9 +92,3 @@ rollout terminar e, se falhar, volta sozinho pra imagem anterior.
 ```bash
 ./scripts/deploy-rollout.sh ghcr.io/<owner>/devops-azure-api:sha-abc1234
 ```
-
-## O que mudaria em produção
-
-Ingress em vez de NodePort, Secrets via algum cofre (não commitado em
-texto puro), HPA considerando métrica de aplicação além de CPU, alerting
-no Prometheus, e assinatura de imagem no pipeline antes de ir pro registry.
