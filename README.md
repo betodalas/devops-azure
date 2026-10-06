@@ -1,9 +1,5 @@
 # devops-azure
 
-Teste técnico de DevOps: pegar uma API simples e cuidar de toda a
-infraestrutura em volta dela — container, Kubernetes local, CI/CD e
-observabilidade.
-
 A API é um CRUD de "todos" em Node/Express, feito só pra ter algo rodando
 (o foco aqui é a infra, não a aplicação). Tem `/health`, `/ready`,
 `/metrics`, um `/api/boom` pra forçar erro 500 e um `/api/admin/stats`
